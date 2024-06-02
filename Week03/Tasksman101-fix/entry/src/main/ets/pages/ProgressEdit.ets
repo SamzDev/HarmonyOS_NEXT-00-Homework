@@ -29,7 +29,7 @@ struct ProgressEdit {
         Text(this.progress + '%')//进度百分比
           .fontSize($r('sys.float.ohos_id_text_size_button1'))//系统1号按钮大小
           .fontColor($r('sys.color.ohos_id_text_color_active')) //活跃文字的颜色
-
+          .layoutWeight(1)
 
       }.justifyContent(FlexAlign.Center) //Row的主轴方向（水平），元素居中排列
       .width('100%')
