@@ -5,7 +5,7 @@ import { CommonConstants } from '../common/constant/CommonConstant'
   .fontColor($r('sys.color.ohos_id_color_text_secondary'))
 }
 
-@Entry
+// @Entry
 @Component export
 struct TaskOverview {
   //接收来自上层的最近更新时间,Prop可以有默认值

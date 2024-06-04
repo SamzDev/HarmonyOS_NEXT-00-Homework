@@ -25,6 +25,8 @@ struct TaskItem {
   //选中的任务组，来自上级，如果更新需回传（@link）;为了调试方便，暂用@state
   @Link selectedTasks : boolean[]  //= []
 
+  @Consume selectAll: boolean  // = false //全选
+
   //是否开启了编辑模式，由上级组件决定
   @Prop isEditMode: boolean = true
 
@@ -156,6 +158,20 @@ struct TaskItem {
             .selectedColor($r('app.color.main_blue'))
             .onChange((isChecked) => { //点击后，给任务选择状态赋值
               this.selectedTasks[this.index] = isChecked
+              // 找到一个不是true的就说明不是全选
+              let result = this.selectedTasks.findIndex(item => item == false || item == null)
+              // console.log('selectedTasks： ' + JSON.stringify(this.selectedTasks))
+              // console.log('allData： ' + JSON.stringify(Tasks.allData))
+              // console.log('result： '+ JSON.stringify(result))
+
+              // 判断不同情况，修改全选状态
+              if (result >= 0) {
+                this.selectAll = false
+                console.log('单选： ' + this.selectAll + JSON.stringify(this.selectedTasks))
+              } else if (this.selectedTasks.length === Tasks.allData.length) {
+                this.selectAll = true
+              }
+
             })
               //选中状态，与点击绑定
             .select(this.selectedTasks[this.index])

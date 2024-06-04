@@ -14,7 +14,7 @@ struct TaskList {
   @State selectedTasks: boolean[] = []
   //点击的任务，默认没选中任何任务
   @State clickIndex: number = CommonConstants.DEFAULT_CLICK_INDEX
-  @State selectAll: boolean = false //全选
+  @Provide selectAll: boolean = false //全选
   @Link tasks: Task[]
     //=
   //   [
