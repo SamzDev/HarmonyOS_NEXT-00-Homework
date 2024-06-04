@@ -167,7 +167,7 @@ struct TaskItem {
               // 判断不同情况，修改全选状态
               if (result >= 0) {
                 this.selectAll = false
-                console.log('单选： ' + this.selectAll + JSON.stringify(this.selectedTasks))
+                // console.log('单选： ' + this.selectAll + JSON.stringify(this.selectedTasks))
               } else if (this.selectedTasks.length === Tasks.allData.length) {
                 this.selectAll = true
               }
